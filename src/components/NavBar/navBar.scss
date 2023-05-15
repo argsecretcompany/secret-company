@@ -1,0 +1,134 @@
+header {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    height: 70px;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+
+    #HamburgerMenu {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10px;
+
+        svg {
+            fill: white;
+            width: 30px;
+        }
+    }
+
+    #headerLinks {
+        display: flex;
+        margin-left: 10px;
+
+        .link {
+            margin: 0 7px;
+            font-size: 14px;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                color: white;
+                outline: 0;
+            }
+        }
+
+        #productsOption {
+            display: flex;
+            justify-content: center;
+
+            #productsOptions {
+                display: none;
+                opacity: 0;
+                transition: all 200ms;
+            }
+
+            &:hover {
+                #productsOptions {
+                    display: block;
+                    opacity: 1;
+
+                    &:hover {
+                        display: block;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    #logoContainer {
+        position: absolute;
+        width: fit-content;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: flex;
+
+        img {
+            width: 100px;
+            margin: auto;
+        }
+    }
+
+    #cartIconContainer {
+        margin-right: 20px;
+        position: relative;
+
+        #cartIcon {
+            svg {
+                width: 20px;
+                fill: white;
+            }
+        }
+
+        #cartBubble {
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            position: absolute;
+            top: -3px;
+            right: -5px;
+            border-radius: 50%;
+        }
+    }
+
+    @media screen and (max-width: 750px) {
+        #headerLinks {
+            display: none !important;
+        }
+
+        #HamburgerMenu {
+            display: flex;
+        }
+    }
+}
+
+#productsOptions {
+    width: fit-content;
+    position: absolute;
+    margin: auto;
+    height: 50px;
+    font-size: 14px;
+    padding-top: 30px;
+    height: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .options {
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+
+        a {
+            display: block;
+            color: black !important;
+        }
+    }
+}
+
+@import "./mobileHeader";

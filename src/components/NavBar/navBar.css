@@ -1,0 +1,189 @@
+header {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  height: 70px;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+header #HamburgerMenu {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+header #HamburgerMenu svg {
+  fill: white;
+  width: 30px;
+}
+header #headerLinks {
+  display: flex;
+  margin-left: 10px;
+}
+header #headerLinks .link {
+  margin: 0 7px;
+  font-size: 14px;
+  position: relative;
+}
+header #headerLinks .link a {
+  text-decoration: none;
+  color: white;
+  outline: 0;
+}
+header #headerLinks #productsOption {
+  display: flex;
+  justify-content: center;
+}
+header #headerLinks #productsOption #productsOptions {
+  display: none;
+  opacity: 0;
+  transition: all 200ms;
+}
+header #headerLinks #productsOption:hover #productsOptions {
+  display: block;
+  opacity: 1;
+}
+header #headerLinks #productsOption:hover #productsOptions:hover {
+  display: block;
+  opacity: 1;
+}
+header #logoContainer {
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+}
+header #logoContainer img {
+  width: 100px;
+  margin: auto;
+}
+header #cartIconContainer {
+  margin-right: 20px;
+  position: relative;
+}
+header #cartIconContainer #cartIcon svg {
+  width: 20px;
+  fill: white;
+}
+header #cartIconContainer #cartBubble {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 750px) {
+  header #headerLinks {
+    display: none !important;
+  }
+  header #HamburgerMenu {
+    display: flex;
+  }
+}
+
+#productsOptions {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  margin: auto;
+  height: 50px;
+  font-size: 14px;
+  padding-top: 30px;
+  height: -moz-fit-content;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#productsOptions .options {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+#productsOptions .options a {
+  display: block;
+  color: black !important;
+}
+
+#mobileHeader {
+  display: none;
+  position: fixed;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  top: 70px;
+  z-index: 4;
+  padding: 20px;
+  padding-right: 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+#mobileHeader #linksContainer .link a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+#mobileHeader #linksContainer .link p {
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+}
+#mobileHeader #linksContainer .link p svg {
+  width: 20px;
+  position: absolute;
+  right: -20px;
+}
+#mobileHeader #linksContainer .link p svg.active {
+  rotate: 180deg;
+}
+#mobileHeader #linksContainer #productOptions {
+  transition: all 200ms !important;
+  margin-bottom: 5px;
+}
+#mobileHeader #linksContainer #productOptions .option a {
+  color: rgb(71, 71, 71);
+  text-decoration: none;
+  font-size: 15px;
+}
+#mobileHeader #linksContainer .link.active svg {
+  rotate: 180deg;
+}
+#mobileHeader #linksContainer #productOptions.desactivated {
+  display: none;
+  height: 0;
+}
+@keyframes showMobileHeader {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes hideMobileHeader {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -200px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #mobileHeader {
+    display: block;
+  }
+}/*# sourceMappingURL=navBar.css.map */

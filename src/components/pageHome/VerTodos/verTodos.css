@@ -1,0 +1,25 @@
+#verTodos {
+  background-image: url("../../../img/verTodos.webp");
+  background-size: cover;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#verTodos button {
+  all: unset;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  scale: 1.5;
+}
+#verTodos button a {
+  text-decoration: none;
+  color: black;
+}
+@media screen and (max-width: 750px) {
+  #verTodos {
+    height: 200px;
+  }
+}/*# sourceMappingURL=verTodos.css.map */

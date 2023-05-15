@@ -1,0 +1,86 @@
+#finishCart {
+  background-color: rgb(43, 43, 43);
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#finishCart button {
+  all: unset;
+  background-color: rgb(230, 230, 230);
+  font-size: 14px;
+  height: 25px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#carritoContainer h1 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#carritoContainer #carrito {
+  margin-bottom: 20px;
+}
+#carritoContainer #carrito .cartProduct {
+  display: grid;
+  grid-template-areas: "img name price" "img delete quantity";
+  grid-template-columns: 1fr 1.7fr 1fr;
+  background-color: rgb(230, 230, 230);
+  margin: 10px 0;
+  padding: 10px;
+}
+#carritoContainer #carrito .cartProduct div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#carritoContainer #carrito .cartProduct .imgContainer {
+  grid-area: img;
+}
+#carritoContainer #carrito .cartProduct .imgContainer img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#carritoContainer #carrito .cartProduct .priceContainer {
+  grid-area: price;
+  font-weight: 500;
+  font-size: 14px;
+}
+#carritoContainer #carrito .cartProduct .nameContainer {
+  grid-area: name;
+  font-weight: 800;
+}
+#carritoContainer #carrito .cartProduct .deleteContainer {
+  grid-area: delete;
+}
+#carritoContainer #carrito .cartProduct .deleteContainer button {
+  all: unset;
+  background-color: rgb(196, 0, 0);
+  color: white;
+  font-size: 14px;
+  padding: 3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+#carritoContainer #carrito .cartProduct .quantityContainer {
+  grid-area: quantity;
+}
+#carritoContainer #carrito .cartProduct .quantityContainer .quantity {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}/*# sourceMappingURL=carrito.css.map */

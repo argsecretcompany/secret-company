@@ -1,0 +1,94 @@
+#mobileHeader {
+    display: none;
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    top: 70px;
+    z-index: 4;
+    padding: 20px;
+    padding-right: 30px;
+    user-select: none;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+
+    #linksContainer {
+
+        .link {
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: 600;
+            }
+
+            p {
+                position: relative;
+                cursor: pointer;
+                font-weight: 600;
+
+                svg {
+                    width: 20px;
+                    position: absolute;
+                    right: -20px;
+                }
+
+                svg.active {
+                    rotate: 180deg;
+                }
+            }
+        }
+
+        #productOptions {
+            transition: all 200ms !important;
+            margin-bottom: 5px;
+            
+            .option {
+
+                a {
+                    color: rgb(71, 71, 71);
+                    text-decoration: none;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .link.active {
+            svg {
+                rotate: 180deg;
+            }
+        }
+
+        #productOptions.desactivated {
+            display: none;
+            height: 0;
+        }
+    }
+
+    @keyframes showMobileHeader {
+        0% {
+            left: -200px;
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes hideMobileHeader {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -200px;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #mobileHeader {
+        display: block;
+    }
+}

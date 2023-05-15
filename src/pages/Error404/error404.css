@@ -1,0 +1,10 @@
+#error404 {
+  height: calc(100vh - 158px - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#error404 h1 {
+  font-size: 60px;
+  font-weight: 900;
+}/*# sourceMappingURL=error404.css.map */

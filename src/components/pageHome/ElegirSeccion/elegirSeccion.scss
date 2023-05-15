@@ -1,0 +1,60 @@
+#elegirSeccion {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+
+    .section {
+        display: flex;
+        position: relative;
+        width: fit-content;
+        height: fit-content;
+
+        img {
+            width: 300px;
+            height: 300px;
+            filter: brightness(70%);
+        }
+
+        p {
+            position: absolute;
+            top: 0; right: 0; left: 0; bottom: 0;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+            color: white;
+            font-weight: 800;
+            font-size: 30px;
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        img {
+            width: 200px !important;
+            height: 200px !important;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        img {
+            width: 150px !important;
+            height: 150px !important;
+        }
+
+        p {
+            font-size: 23px !important;
+        }
+    }
+
+    @media screen and (max-width: 345px) {
+        flex-direction: column;
+        width: fit-content;
+        margin: 30px auto;
+
+        img {
+            width: 200px !important;
+            height: 200px !important;
+            margin: 10px 0;
+        }
+    }
+}
