@@ -189,6 +189,9 @@
   #productosSection #productos .producto img {
     width: calc(50vw - 20px) !important;
   }
+  #productosSection #productos .producto h3 {
+    width: calc(50vw - 20px) !important;
+  }
   #productosSection #buttonContainer {
     display: none !important;
   }
