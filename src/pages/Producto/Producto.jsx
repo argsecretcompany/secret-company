@@ -86,6 +86,7 @@ const Producto = () => {
         cart = [];
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Producto añadido correctamente.')
     }
 
     function updateQuantity(boolean) {

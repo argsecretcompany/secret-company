@@ -60,6 +60,10 @@ header #logoContainer {
   margin: auto;
   display: flex;
 }
+header #logoContainer a {
+  height: 53.08px;
+  margin: auto;
+}
 header #logoContainer img {
   width: 100px;
   margin: auto;

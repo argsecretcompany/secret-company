@@ -12,7 +12,7 @@ const NavBar = () => {
     const [mobileProductsActive, SetMPA] = useState("desactivated");
     const MHButton = useRef();
     const [openMenuStyle, setOpenMenuStyle] = useState("hideMobileHeader");
-    const [cartBuubleStyle, setCartBubbleStyle] = useState({opacity: 0});
+    const [cartBuubleStyle, setCartBubbleStyle] = useState({ opacity: 0 });
 
     useEffect(() => {
         const buttonRef = MHButton.current;
@@ -50,18 +50,18 @@ const NavBar = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-          const cart = JSON.parse(localStorage.getItem('cart'));
-          if (cart !== null && cart.length > 0) {
-            setCartBubbleStyle({ opacity: 1 });
-          } else {
-            setCartBubbleStyle({ opacity: 0 });
-          }
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            if (cart !== null && cart.length > 0) {
+                setCartBubbleStyle({ opacity: 1 });
+            } else {
+                setCartBubbleStyle({ opacity: 0 });
+            }
         }, 300);
-      
+
         return () => {
-          clearInterval(interval);
+            clearInterval(interval);
         };
-      }, []); 
+    }, []);
 
     return (
         <>
@@ -90,7 +90,10 @@ const NavBar = () => {
                     </div>
                 </nav>
                 <div id="logoContainer">
-                    <img src={require('../../img/logo.png')} alt="Logo" />
+                    <Link to="/">
+                        <img src={require('../../img/logo.png')} alt="Logo" />
+
+                    </Link>
                 </div>
                 <Link to="/carrito">
                     <div id="cartIconContainer">
