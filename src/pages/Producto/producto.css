@@ -67,6 +67,30 @@
   background-color: black;
   color: white;
 }
+#productoContainer #producto #info #cantidadContainer {
+  margin-top: 10px;
+}
+#productoContainer #producto #info #cantidadContainer #cantidadTitle {
+  font-size: 14px;
+}
+#productoContainer #producto #info #cantidadContainer #cantidad {
+  display: flex;
+}
+#productoContainer #producto #info #cantidadContainer #cantidad button {
+  all: unset;
+  width: 27px;
+  height: 27px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#productoContainer #producto #info #cantidadContainer #cantidad #quantityInput {
+  width: 36px;
+  text-align: center;
+}
 #productoContainer #producto #info #addToCart {
   all: unset;
   display: flex;
@@ -90,7 +114,7 @@
 }
 @media screen and (max-width: 880px) {
   #productoContainer {
-    min-height: 683px;
+    min-height: 741px;
   }
   #productoContainer #producto {
     grid-template-areas: "1" "2";
@@ -103,7 +127,7 @@
 }
 @media screen and (max-width: 470px) {
   #productoContainer {
-    min-height: 673px;
+    min-height: 731px;
   }
   #productoContainer img {
     width: calc(100vw - 80px) !important;
@@ -119,16 +143,16 @@
 }
 @media screen and (max-width: 435px) {
   #productoContainer {
-    min-height: 615px;
+    min-height: 673px;
   }
 }
 @media screen and (max-width: 400px) {
   #productoContainer {
-    min-height: 580px;
+    min-height: 638px;
   }
 }
 @media screen and (max-width: 350px) {
   #productoContainer {
-    min-height: 530px;
+    min-height: 588px;
   }
 }

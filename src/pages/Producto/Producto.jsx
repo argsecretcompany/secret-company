@@ -32,6 +32,7 @@ const Producto = () => {
     const [TMClass, setTMC] = useState("desactive");
     const [TLClass, setTLC] = useState("desactive");
     const [talle, setTalle] = useState("S");
+    const [quantity, setQuantity] = useState(1);
 
     function changeClass(talle) {
         setTSC("desactive");
@@ -56,7 +57,7 @@ const Producto = () => {
         const cartItem = {
             ...item,
             talle: talle,
-            cantidad: 1
+            cantidad: quantity
         }
 
         if (cart !== null) {
@@ -67,7 +68,7 @@ const Producto = () => {
                         return objeto.id === product.id;
                     });
                     cart[indice].talle = talle;
-                    cart[indice].cantidad = 1;
+                    cart[indice].cantidad = quantity;
                     localStorage.setItem('cart', JSON.stringify(cart));
                     isInCart = true;
                 }
@@ -85,6 +86,16 @@ const Producto = () => {
         cart = [];
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function updateQuantity(boolean) {
+        if (boolean && quantity < 10) {
+            setQuantity(quantity + 1);
+        }
+
+        if (!boolean && quantity > 1) {
+            setQuantity(quantity - 1);
+        }
     }
 
 
@@ -118,6 +129,18 @@ const Producto = () => {
                                     </button>
                                     <button ref={talleL} className={TLClass} onClick={() => { changeClass(talleL) }}>
                                         <p>L</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="cantidadContainer">
+                                <p id='cantidadTitle'>Cantidad:</p>
+                                <div id="cantidad">
+                                    <button onClick={()=>{updateQuantity(false)}}>
+                                        <p>-</p>
+                                    </button>
+                                    <p id='quantityInput'>{quantity}</p>
+                                    <button onClick={()=>{updateQuantity(true)}}>
+                                        <p>+</p>
                                     </button>
                                 </div>
                             </div>
