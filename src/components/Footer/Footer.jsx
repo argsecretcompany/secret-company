@@ -18,7 +18,7 @@ const Footer = () => {
                 <div id="contacto">
                     <p className='footerTitle'>Contáctanos</p>
                     <ul>
-                        <li>secretcompanyarg@gmail.com</li>
+                        <li>argsecretcompany@gmail.com</li>
                         <li>+54 3516 06-9608</li>
                     </ul>
                 </div>
