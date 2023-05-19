@@ -1,5 +1,4 @@
 #loading {
-  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   margin-top: 10px;
@@ -20,7 +19,6 @@
   align-items: center;
   background-color: rgb(223, 223, 223);
   padding: 20px;
-  width: -moz-fit-content;
   width: fit-content;
   max-width: calc(100% - 60px);
   margin: 20px 0;
@@ -29,8 +27,7 @@
   background-color: white;
   width: 500px;
   aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #productoContainer #producto #info {
   margin-left: 10px;
@@ -134,4 +131,4 @@
   #productoContainer {
     min-height: 530px;
   }
-}/*# sourceMappingURL=producto.css.map */
+}

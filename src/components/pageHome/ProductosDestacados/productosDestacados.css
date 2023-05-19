@@ -1,10 +1,8 @@
 #productosDestacados {
-  width: -moz-fit-content;
   width: fit-content;
   margin: 40px auto;
 }
 #productosDestacados h2 {
-  width: -moz-fit-content;
   width: fit-content;
   margin-left: 40px;
 }
@@ -17,7 +15,6 @@
 }
 #productosDestacados #productos .producto {
   text-align: center;
-  width: -moz-fit-content;
   width: fit-content;
   margin: 10px 20px;
   padding-bottom: 10px;
@@ -29,13 +26,10 @@
 #productosDestacados #productos .producto img {
   width: 250px;
   aspect-ratio: 1/1;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: 0 auto;
   background-color: rgb(240, 240, 240);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   transition: opacity 400ms;
   opacity: 1;
 }
@@ -81,9 +75,7 @@
 }
 #productosDestacados #productos .producto:hover h3, #productosDestacados #productos .producto:hover h4 {
   opacity: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 #productosDestacados #productos .producto:hover #buttonContainer {
   opacity: 1;
@@ -126,4 +118,4 @@
   #productosDestacados .producto:hover h3, #productosDestacados .producto:hover h4 {
     opacity: 1 !important;
   }
-}/*# sourceMappingURL=productosDestacados.css.map */
+}

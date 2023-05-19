@@ -31,6 +31,7 @@ const Producto = () => {
     const [TSClass, setTSC] = useState("active");
     const [TMClass, setTMC] = useState("desactive");
     const [TLClass, setTLC] = useState("desactive");
+    const [talle, setTalle] = useState("S");
 
     function changeClass(talle) {
         setTSC("desactive");
@@ -39,11 +40,51 @@ const Producto = () => {
 
         if (talle === talleS) {
             setTSC("active");
+            setTalle("S");
         } else if (talle === talleM) {
             setTMC("active");
+            setTalle("M");
         } else if (talle === talleL) {
             setTLC("active");
+            setTalle("L");
         }
+    }
+
+    function agregarAlCarrito(item) {
+        let isInCart = false;
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        const cartItem = {
+            ...item,
+            talle: talle,
+            cantidad: 1
+        }
+
+        if (cart !== null) {
+            cart.forEach(p => {
+                if (p.id === product.id) {
+                    alert('Producto editado correctamente.');
+                    var indice = cart.findIndex(function (objeto) {
+                        return objeto.id === product.id;
+                    });
+                    cart[indice].talle = talle;
+                    cart[indice].cantidad = 1;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    isInCart = true;
+                }
+            })
+
+            if (!isInCart) {
+                cart.push(cartItem);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Producto añadido correctamente.')
+            }
+
+            return;
+        }
+
+        cart = [];
+        cart.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
 
@@ -81,7 +122,7 @@ const Producto = () => {
                                 </div>
                             </div>
 
-                            <button id='addToCart'>
+                            <button id='addToCart' onClick={() => { agregarAlCarrito(product) }}>
                                 <p>Añadir al carrito</p>
                             </button>
                         </div>

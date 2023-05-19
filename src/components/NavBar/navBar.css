@@ -52,7 +52,6 @@ header #headerLinks #productsOption:hover #productsOptions:hover {
 }
 header #logoContainer {
   position: absolute;
-  width: -moz-fit-content;
   width: fit-content;
   top: 0;
   bottom: 0;
@@ -92,14 +91,12 @@ header #cartIconContainer #cartBubble {
 }
 
 #productsOptions {
-  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
   margin: auto;
   height: 50px;
   font-size: 14px;
   padding-top: 30px;
-  height: -moz-fit-content;
   height: fit-content;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -115,9 +112,7 @@ header #cartIconContainer #cartBubble {
 #mobileHeader {
   display: none;
   position: fixed;
-  height: -moz-fit-content;
   height: fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   background-color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -125,9 +120,7 @@ header #cartIconContainer #cartBubble {
   z-index: 4;
   padding: 20px;
   padding-right: 30px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   animation-duration: 500ms;
   animation-fill-mode: forwards;
 }
@@ -186,4 +179,4 @@ header #cartIconContainer #cartBubble {
   #mobileHeader {
     display: block;
   }
-}/*# sourceMappingURL=navBar.css.map */
+}

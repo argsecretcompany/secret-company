@@ -16,14 +16,19 @@
   cursor: pointer;
 }
 
+#carritoContainer {
+  margin-bottom: 40px;
+}
 #carritoContainer h1 {
-  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   margin-top: 50px;
 }
 #carritoContainer #carrito {
   margin-bottom: 20px;
+}
+#carritoContainer #carrito #emptyCartText {
+  text-align: center;
 }
 #carritoContainer #carrito .cartProduct {
   display: grid;
@@ -44,8 +49,7 @@
 #carritoContainer #carrito .cartProduct .imgContainer img {
   width: 80px;
   height: 80px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -70,10 +74,17 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
 }
-#carritoContainer #carrito .cartProduct .quantityContainer {
+#carritoContainer #carrito .cartProduct a {
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+#carritoContainer #carrito .cartProduct a .quantityContainer {
   grid-area: quantity;
 }
-#carritoContainer #carrito .cartProduct .quantityContainer .quantity {
+#carritoContainer #carrito .cartProduct a .quantityContainer .quantity, #carritoContainer #carrito .cartProduct a .quantityContainer .talle {
   background-color: black;
   width: 20px;
   height: 20px;
@@ -83,4 +94,5 @@
   align-items: center;
   font-size: 14px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}/*# sourceMappingURL=carrito.css.map */
+  margin: 0 3px;
+}

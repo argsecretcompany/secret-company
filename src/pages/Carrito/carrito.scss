@@ -18,6 +18,8 @@
 }
 
 #carritoContainer {
+    margin-bottom: 40px;
+
     h1 {
         width: fit-content;
         margin: 0 auto;
@@ -27,11 +29,15 @@
     #carrito {
         margin-bottom: 20px;
 
+        #emptyCartText {
+            text-align: center;
+        }
+
         .cartProduct {
             display: grid;
-            grid-template-areas: 
-            "img name price"
-            "img delete quantity";
+            grid-template-areas:
+                "img name price"
+                "img delete quantity";
             grid-template-columns: 1fr 1.7fr 1fr;
             background-color: rgb(230, 230, 230);
             margin: 10px 0;
@@ -42,7 +48,7 @@
                 justify-content: center;
                 align-items: center;
             }
-            
+
 
             .imgContainer {
                 grid-area: img;
@@ -81,19 +87,32 @@
                 }
             }
 
-            .quantityContainer {
-                grid-area: quantity;
+            a {
+                color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
 
-                .quantity {
-                    background-color: black;
-                    width: 20px;
-                    height: 20px;
-                    color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 14px;
-                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                .quantityContainer {
+                    grid-area: quantity;
+
+                    .quantity {
+                        background-color: black;
+                        width: 20px;
+                        height: 20px;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 14px;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        margin: 0 3px
+                    }
+
+                    .talle {
+                        @extend .quantity;
+                    }
                 }
             }
         }

@@ -12,6 +12,7 @@ const NavBar = () => {
     const [mobileProductsActive, SetMPA] = useState("desactivated");
     const MHButton = useRef();
     const [openMenuStyle, setOpenMenuStyle] = useState("hideMobileHeader");
+    const [cartBuubleStyle, setCartBubbleStyle] = useState({opacity: 0});
 
     useEffect(() => {
         const buttonRef = MHButton.current;
@@ -47,6 +48,21 @@ const NavBar = () => {
         }
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+          const cart = JSON.parse(localStorage.getItem('cart'));
+          if (cart !== null && cart.length > 0) {
+            setCartBubbleStyle({ opacity: 1 });
+          } else {
+            setCartBubbleStyle({ opacity: 0 });
+          }
+        }, 300);
+      
+        return () => {
+          clearInterval(interval);
+        };
+      }, []); 
+
     return (
         <>
             <header>
@@ -81,7 +97,7 @@ const NavBar = () => {
                         <div id="cartIcon">
                             <CartIcon />
                         </div>
-                        <div id="cartBubble"></div>
+                        <div id="cartBubble" style={cartBuubleStyle}></div>
                     </div>
                 </Link>
             </header>
