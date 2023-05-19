@@ -105,6 +105,9 @@
   #productosDestacados #productos .producto img {
     width: calc(50vw - 20px) !important;
   }
+  #productosDestacados #productos .producto h3 {
+    width: calc(50vw - 20px) !important;
+  }
   #productosDestacados #buttonContainer {
     display: none !important;
   }

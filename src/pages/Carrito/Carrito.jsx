@@ -12,9 +12,11 @@ const Carrito = () => {
       return objeto.id === id;
     });
 
-    productos.splice(indice, 1);
-    localStorage.setItem('cart', JSON.stringify(productos));
-    setProductos(JSON.parse(localStorage.getItem('cart')));
+    if (indice >= 0) {
+      productos.splice(indice, 1);
+      localStorage.setItem('cart', JSON.stringify(productos));
+      setProductos(JSON.parse(localStorage.getItem('cart')));
+    }
   }
 
   if (productos !== null && productos.length > 0) {

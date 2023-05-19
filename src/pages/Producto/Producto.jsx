@@ -10,44 +10,65 @@ const Producto = () => {
     const [productB, setProductB] = useState(false);
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
+    const talleS = useRef();
+    const talleM = useRef();
+    const talleL = useRef();
+    const [TSClass, setTSC] = useState('active');
+    const [TMClass, setTMC] = useState('desactive');
+    const [TLClass, setTLC] = useState('desactive');
+    const [talle, setTalle] = useState('S');
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         if (productos.length > 0) {
             setLoading(false);
-            productos.map(item => {
-                if (window.location.pathname === `/producto/${item.id}/` || window.location.pathname === `/producto/${item.id}`) {
+            productos.forEach(item => {
+                if (
+                    window.location.pathname === `/producto/${item.id}/` ||
+                    window.location.pathname === `/producto/${item.id}`
+                ) {
                     setProduct(item);
                     setProductB(true);
                 }
-
-                return null;
-            })
+            });
         }
-    }, [productos])
+    }, [productos]);
 
-    const talleS = useRef();
-    const talleM = useRef();
-    const talleL = useRef();
-    const [TSClass, setTSC] = useState("active");
-    const [TMClass, setTMC] = useState("desactive");
-    const [TLClass, setTLC] = useState("desactive");
-    const [talle, setTalle] = useState("S");
-    const [quantity, setQuantity] = useState(1);
+    useEffect(() => {
+        if (productB) {
+            function checkCartDetails() {
+                let cart = JSON.parse(localStorage.getItem('cart'));
+                var indice = cart.findIndex(function (objeto) {
+                    return objeto.id === product.id;
+                });
+    
+                if (indice >= 0) {
+                    setTalle(cart[indice].talle);
+                    cart[indice].talle === "S" ? setTSC('active') : setTSC('desactive');
+                    cart[indice].talle === "M" ? setTMC('active') : setTMC('desactive');
+                    cart[indice].talle === "L" ? setTLC('active') : setTLC('desactive');
+                    setQuantity(cart[indice].cantidad);
+                }
+            }
+    
+            checkCartDetails();
+        }
+    }, [productB, product]);
 
     function changeClass(talle) {
-        setTSC("desactive");
-        setTMC("desactive");
-        setTLC("desactive");
+        setTSC('desactive');
+        setTMC('desactive');
+        setTLC('desactive');
 
         if (talle === talleS) {
-            setTSC("active");
-            setTalle("S");
+            setTSC('active');
+            setTalle('S');
         } else if (talle === talleM) {
-            setTMC("active");
-            setTalle("M");
+            setTMC('active');
+            setTalle('M');
         } else if (talle === talleL) {
-            setTLC("active");
-            setTalle("L");
+            setTLC('active');
+            setTalle('L');
         }
     }
 
@@ -57,8 +78,8 @@ const Producto = () => {
         const cartItem = {
             ...item,
             talle: talle,
-            cantidad: quantity
-        }
+            cantidad: quantity,
+        };
 
         if (cart !== null) {
             cart.forEach(p => {
@@ -67,17 +88,20 @@ const Producto = () => {
                     var indice = cart.findIndex(function (objeto) {
                         return objeto.id === product.id;
                     });
-                    cart[indice].talle = talle;
-                    cart[indice].cantidad = quantity;
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    isInCart = true;
+
+                    if (indice >= 0) {
+                        cart[indice].talle = talle;
+                        cart[indice].cantidad = quantity;
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        isInCart = true;
+                    }
                 }
-            })
+            });
 
             if (!isInCart) {
                 cart.push(cartItem);
                 localStorage.setItem('cart', JSON.stringify(cart));
-                alert('Producto añadido correctamente.')
+                alert('Producto añadido correctamente.');
             }
 
             return;
@@ -86,7 +110,7 @@ const Producto = () => {
         cart = [];
         cart.push(cartItem);
         localStorage.setItem('cart', JSON.stringify(cart));
-        alert('Producto añadido correctamente.')
+        alert('Producto añadido correctamente.');
     }
 
     function updateQuantity(boolean) {
@@ -99,15 +123,14 @@ const Producto = () => {
         }
     }
 
-
     if (loading) {
         return (
             <>
                 <NavBar />
-                <p id='loading'>Estamos cargando el producto...</p>
+                <p id="loading">Estamos cargando el producto...</p>
                 <Footer />
             </>
-        )
+        );
     } else if (productB) {
         return (
             <>
@@ -120,33 +143,33 @@ const Producto = () => {
                             <h1>{product.name}</h1>
                             <h2>{product.price}</h2>
                             <div id="tallesContainer">
-                                <p id='tallesTitle'>Talles:</p>
+                                <p id="tallesTitle">Talles:</p>
                                 <div id="talles">
-                                    <button ref={talleS} className={TSClass} onClick={() => { changeClass(talleS) }}>
+                                    <button ref={talleS} className={TSClass} onClick={() => changeClass(talleS)}>
                                         <p>S</p>
                                     </button>
-                                    <button ref={talleM} className={TMClass} onClick={() => { changeClass(talleM) }}>
+                                    <button ref={talleM} className={TMClass} onClick={() => changeClass(talleM)}>
                                         <p>M</p>
                                     </button>
-                                    <button ref={talleL} className={TLClass} onClick={() => { changeClass(talleL) }}>
+                                    <button ref={talleL} className={TLClass} onClick={() => changeClass(talleL)}>
                                         <p>L</p>
                                     </button>
                                 </div>
                             </div>
                             <div id="cantidadContainer">
-                                <p id='cantidadTitle'>Cantidad:</p>
+                                <p id="cantidadTitle">Cantidad:</p>
                                 <div id="cantidad">
-                                    <button onClick={()=>{updateQuantity(false)}}>
+                                    <button onClick={() => updateQuantity(false)}>
                                         <p>-</p>
                                     </button>
-                                    <p id='quantityInput'>{quantity}</p>
-                                    <button onClick={()=>{updateQuantity(true)}}>
+                                    <p id="quantityInput">{quantity}</p>
+                                    <button onClick={() => updateQuantity(true)}>
                                         <p>+</p>
                                     </button>
                                 </div>
                             </div>
 
-                            <button id='addToCart' onClick={() => { agregarAlCarrito(product) }}>
+                            <button id="addToCart" onClick={() => agregarAlCarrito(product)}>
                                 <p>Añadir al carrito</p>
                             </button>
                         </div>
@@ -155,10 +178,10 @@ const Producto = () => {
 
                 <Footer />
             </>
-        )
+        );
     } else {
         return <Error404 />;
     }
-}
+};
 
-export default Producto
+export default Producto;
