@@ -37,6 +37,7 @@
   background-color: rgb(230, 230, 230);
   margin: 10px 0;
   padding: 10px;
+  text-align: center;
 }
 #carritoContainer #carrito .cartProduct div {
   display: flex;
