@@ -21,6 +21,7 @@ const PayCart = () => {
               {
                 title: "Producto de prueba",
                 unit_price: 10,
+                CurrencyId: "ARS",
                 quantity: 1,
               },
             ],
