@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+import './paycart.css';
 
-initMercadoPago('APP_USR-46e63112-b644-4e98-a54f-957a411776ae', {locale: 'es-AR'});
+initMercadoPago('APP_USR-46e63112-b644-4e98-a54f-957a411776ae', { locale: 'es-AR' });
 
 const PayCart = () => {
   const [preferenceId, setPreferenceId] = useState("");
   const [walletLoaded, setWalletLoaded] = useState(false);
+  const [fetchCompleted, setFetchCompleted] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +37,7 @@ const PayCart = () => {
         const data = await response.json();
         console.log('data', data);
         setPreferenceId(data.id);
+        setFetchCompleted(true);
       } catch (error) {
         console.log(error);
       }
@@ -53,7 +56,15 @@ const PayCart = () => {
 
   return (
     <>
-      {walletLoaded && <Wallet initialization={{ preferenceId: preferenceId }} />}
+      {!fetchCompleted && (
+        <div id='loadingPay'>
+          <p>Cargando pago...</p>
+        </div>
+      )}
+
+      {walletLoaded && fetchCompleted && (
+        <Wallet initialization={{ preferenceId: preferenceId }} />
+      )}
     </>
   );
 }
