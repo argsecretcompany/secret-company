@@ -50,7 +50,7 @@ const PayCart = ({ productos }) => {
     if (productos.length > 0) {
       fetchData();
     }
-  }, [productos]);
+  }, [productos, items]);
 
   useEffect(() => {
     if (preferenceId !== "" && !walletLoaded) {
