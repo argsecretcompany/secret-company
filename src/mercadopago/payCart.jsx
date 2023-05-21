@@ -4,10 +4,17 @@ import './paycart.css';
 
 initMercadoPago('APP_USR-46e63112-b644-4e98-a54f-957a411776ae', { locale: 'es-AR' });
 
-const PayCart = () => {
+const PayCart = ({ productos }) => {
   const [preferenceId, setPreferenceId] = useState("");
   const [walletLoaded, setWalletLoaded] = useState(false);
   const [fetchCompleted, setFetchCompleted] = useState(false);
+
+  const items = productos.map(producto => ({
+    title: `${producto.name} - Talle: ${producto.talle}`,
+    unit_price: 10 * 1.055,
+    currency_id: "ARS",
+    quantity: producto.cantidad
+  }));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,14 +26,7 @@ const PayCart = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            items: [
-              {
-                title: "Producto de prueba",
-                unit_price: 10,
-                CurrencyId: "ARS",
-                quantity: 1,
-              },
-            ],
+            items: items,
           }),
         });
 
@@ -43,10 +43,14 @@ const PayCart = () => {
       }
     };
 
-    if (preferenceId === "") {
+    setPreferenceId(""); // Reiniciar preferenceId
+    setWalletLoaded(false); // Reiniciar walletLoaded
+    setFetchCompleted(false); // Reiniciar fetchCompleted
+
+    if (productos.length > 0) {
       fetchData();
     }
-  }, [preferenceId]);
+  }, [productos]);
 
   useEffect(() => {
     if (preferenceId !== "" && !walletLoaded) {

@@ -1,0 +1,59 @@
+.container-me {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3;
+}
+.container-me #btn-mas {
+  opacity: 0;
+}
+.container-me .redes a,
+.container-me .btn-mas label {
+  display: block;
+  text-decoration: none;
+  background: #ffffff;
+  color: #ffffff;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: all 500ms ease;
+  font-size: 20px;
+}
+.container-me .redes a:hover,
+.container-me .btn-mas label:hover {
+  background: #fff;
+}
+.container-me .redes a {
+  margin-bottom: -15px;
+  opacity: 0;
+  visibility: hidden;
+}
+.container-me #btn-mas:checked ~ .redes a {
+  margin-bottom: 10px;
+  opacity: 1;
+  visibility: visible;
+}
+.container-me .btn-mas label {
+  cursor: pointer;
+  font-size: 23px;
+  color: #000;
+}
+.container-me #fe {
+  background-color: #006de7;
+}
+.container-me #wa {
+  background-color: #28ad41;
+}
+.container-me #ig {
+  background: linear-gradient(#7410FF, #FF3620);
+}
+.container-me #tik {
+  background: radial-gradient(#4b122f, #000000);
+}
+.container-me #btn-mas:checked ~ .btn-mas label {
+  transform: rotate(135deg);
+  font-size: 25px;
+}

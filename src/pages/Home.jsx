@@ -5,12 +5,14 @@ import ImagenPrincipal from '../components/pageHome/ImagenPrincipal/ImagenPrinci
 import ProductosDestacados from '../components/pageHome/ProductosDestacados/ProductosDestacados';
 import VerTodos from '../components/pageHome/VerTodos/VerTodos';
 import ElegirSeccion from '../components/pageHome/ElegirSeccion/ElegirSeccion';
+import ContainerMe from '../components/ContainerMe/ContainerMe';
 
 const Home = () => {
   return (
     <>
       <NavBar />
       <ImagenPrincipal />
+      <ContainerMe />
       <main>
         <ProductosDestacados />
         <VerTodos />

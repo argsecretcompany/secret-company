@@ -20,14 +20,11 @@ const Carrito = () => {
     }
   }
 
-  const payCartComponent = <PayCart />; // Guardar el componente PayCart en una variable
-
   if (productos !== null && productos.length > 0) {
     return (
       <>
         <NavBar />
-
-        {payCartComponent} {/* Renderizar el componente PayCart aquí */}
+        <PayCart productos={productos} />
 
         <div id="carritoContainer">
           <h1>Carrito</h1>

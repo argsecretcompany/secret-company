@@ -5,6 +5,7 @@ import Productos from './pages/Productos';
 import Producto from './pages/Producto/Producto';
 import Carrito from './pages/Carrito/Carrito';
 import Error404 from './pages/Error404/Error404';
+import Contacto from './pages/Contacto/Contacto';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/producto/:productID" element={<Producto />} />
         <Route exact path="/carrito" element={<Carrito />} />
         <Route path="*" element={<Error404 />} />
+        <Route exact path="/contacto" element={<Contacto />} />
       </Routes>
     </BrowserRouter>
   );
