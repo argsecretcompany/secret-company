@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
+import PayCart from '../../mercadopago/payCart';
 import './carrito.css';
 
 const Carrito = () => {
@@ -19,16 +20,14 @@ const Carrito = () => {
     }
   }
 
+  const payCartComponent = <PayCart />; // Guardar el componente PayCart en una variable
+
   if (productos !== null && productos.length > 0) {
     return (
       <>
         <NavBar />
 
-        <div id="finishCart">
-          <button>
-            <p>Finalizar compra</p>
-          </button>
-        </div>
+        {payCartComponent} {/* Renderizar el componente PayCart aquí */}
 
         <div id="carritoContainer">
           <h1>Carrito</h1>

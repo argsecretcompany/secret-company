@@ -1,3 +1,16 @@
+/* Cannot read properties of null (reading 'findIndex')
+TypeError: Cannot read properties of null (reading 'findIndex')
+    at checkCartDetails (http://localhost:3000/static/js/bundle.js:2677:27)
+    at http://localhost:3000/static/js/bundle.js:2688:7
+    at commitHookEffectListMount (http://localhost:3000/static/js/bundle.js:59314:30)
+    at commitPassiveMountOnFiber (http://localhost:3000/static/js/bundle.js:60807:17)
+    at commitPassiveMountEffects_complete (http://localhost:3000/static/js/bundle.js:60779:13)
+    at commitPassiveMountEffects_begin (http://localhost:3000/static/js/bundle.js:60769:11)
+    at commitPassiveMountEffects (http://localhost:3000/static/js/bundle.js:60759:7)
+    at flushPassiveEffectsImpl (http://localhost:3000/static/js/bundle.js:62644:7)
+    at flushPassiveEffects (http://localhost:3000/static/js/bundle.js:62596:18)
+    at http://localhost:3000/static/js/bundle.js:62411:13 */
+
 import React, { useState, useEffect, useRef } from 'react';
 import ProductList from '../../database/connectDatabase';
 import Error404 from '../Error404/Error404';
@@ -38,16 +51,19 @@ const Producto = () => {
         if (productB) {
             function checkCartDetails() {
                 let cart = JSON.parse(localStorage.getItem('cart'));
-                var indice = cart.findIndex(function (objeto) {
-                    return objeto.id === product.id;
-                });
-    
-                if (indice >= 0) {
-                    setTalle(cart[indice].talle);
-                    cart[indice].talle === "S" ? setTSC('active') : setTSC('desactive');
-                    cart[indice].talle === "M" ? setTMC('active') : setTMC('desactive');
-                    cart[indice].talle === "L" ? setTLC('active') : setTLC('desactive');
-                    setQuantity(cart[indice].cantidad);
+
+                if (cart !== null) {
+                    var indice = cart.findIndex(function (objeto) {
+                        return objeto.id === product.id;
+                    });
+        
+                    if (indice >= 0) {
+                        setTalle(cart[indice].talle);
+                        cart[indice].talle === "S" ? setTSC('active') : setTSC('desactive');
+                        cart[indice].talle === "M" ? setTMC('active') : setTMC('desactive');
+                        cart[indice].talle === "L" ? setTLC('active') : setTLC('desactive');
+                        setQuantity(cart[indice].cantidad);
+                    }
                 }
             }
     
