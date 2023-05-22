@@ -9,16 +9,16 @@ const PayCart = ({ productos }) => {
   const [walletLoaded, setWalletLoaded] = useState(false);
   const [fetchCompleted, setFetchCompleted] = useState(false);
 
-  const items = productos.map(producto => ({
-    title: `${producto.name} - Talle: ${producto.talle}`,
-    unit_price: 10 * 1.055,
-    currency_id: "ARS",
-    quantity: producto.cantidad
-  }));
-
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const items = productos.map(producto => ({
+          title: `${producto.name} - Talle: ${producto.talle}`,
+          unit_price: 10 * 1.055,
+          currency_id: "ARS",
+          quantity: producto.cantidad
+        }));
+  
         const response = await fetch("https://api.mercadopago.com/checkout/preferences", {
           method: "POST",
           headers: {
@@ -29,11 +29,11 @@ const PayCart = ({ productos }) => {
             items: items,
           }),
         });
-
+  
         if (!response.ok) {
           throw new Error("Error en la solicitud");
         }
-
+  
         const data = await response.json();
         console.log('data', data);
         setPreferenceId(data.id);
@@ -42,15 +42,15 @@ const PayCart = ({ productos }) => {
         console.log(error);
       }
     };
-
+  
     setPreferenceId(""); // Reiniciar preferenceId
     setWalletLoaded(false); // Reiniciar walletLoaded
     setFetchCompleted(false); // Reiniciar fetchCompleted
-
+  
     if (productos.length > 0) {
       fetchData();
     }
-  }, [productos, items]);
+  }, [productos]);
 
   useEffect(() => {
     if (preferenceId !== "" && !walletLoaded) {
